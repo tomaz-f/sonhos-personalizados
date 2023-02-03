@@ -1,0 +1,60 @@
+const data = {
+  products: [
+    {
+      nome: 'Caneca Branca',
+      slug: 'caneca-branca',
+      categoria: 'canecas',
+      imagem: '/images/caneca-branca.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Caneca branca de porcelana',
+    },
+    {
+      nome: 'Squeeze',
+      slug: 'squeeze',
+      categoria: 'squeezes',
+      imagem: '/images/squeeze-1.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Squeeze de plástico',
+    },
+    {
+      nome: 'Quadro 20x30',
+      slug: 'quadro-20x30',
+      categoria: 'quadros',
+      imagem: '/images/quadro-20x30.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Quadro personalizado',
+    },
+    {
+      nome: 'Caneta personalizada',
+      slug: 'caneta-personalizada',
+      categoria: 'canetas',
+      imagem: '/images/caneta-1.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Caneta de plástico personalizada',
+    },
+    {
+      nome: 'Chinelo personalizado',
+      slug: 'chinelos-personalizados',
+      categoria: 'chinelos',
+      imagem: '/images/chinelo-1.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Chinelos personalizados de borracha',
+    },
+    {
+      nome: 'Copo Gin',
+      slug: 'copo-gin',
+      categoria: 'copos',
+      imagem: '/images/copo-gin-1.jpg',
+      marca: 'Sonhos Personalizados',
+      quantidadeEmEstoque: 10,
+      descricao: 'Copo de gin personalizado',
+    },
+  ],
+};
+
+export default data;
