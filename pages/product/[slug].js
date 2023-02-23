@@ -1,17 +1,34 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import React from 'react';
-import Layout from '../../components/Layout';
-import data from '../../utils/data';
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { useContext } from "react";
+import Layout from "../../components/Layout";
+import data from "../../utils/data";
+import { Store } from "../../utils/Store";
 
 export default function ProductScreen() {
+  const { state, dispatch } = useContext(Store);
+
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
   if (!product) {
-    return <div>Product not Found</div>;
+    return <div>Produto não existe.</div>;
   }
+
+  const addToCartHandler = () => {
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    if (product.countInStock < quantity) {
+      window.alert("Produto fora de estoque");
+      return;
+    }
+
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+  };
+
   return (
     <Layout title={product.name}>
       <div className="py-2">
@@ -51,10 +68,13 @@ export default function ProductScreen() {
             <div className="mb-2 flex justify-between">
               <div>Status</div>
               <div>
-                {product.countInStock > 0 ? 'Em estoque' : 'Sem estoque'}
+                {product.countInStock > 0 ? "Em estoque" : "Sem estoque"}
               </div>
             </div>
-            <button className="primary-button w-full">
+            <button
+              className="primary-button w-full"
+              onClick={addToCartHandler}
+            >
               Adicionar ao carrinho
             </button>
           </div>
